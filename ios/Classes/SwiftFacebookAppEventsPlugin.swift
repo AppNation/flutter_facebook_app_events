@@ -87,12 +87,15 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         let arguments = call.arguments as? [String: Any] ?? [String: Any]()
         let eventName = arguments["name"] as! String
         let parameters = arguments["parameters"] as? [String: Any] ?? [String: Any]()
-        if arguments["_valueToSum"] != nil && !(arguments["_valueToSum"] is NSNull) {
-            let valueToDouble = arguments["_valueToSum"] as! Double
-            AppEvents.logEvent(AppEvents.Name(eventName), valueToSum: valueToDouble, parameters: parameters)
-        } else {
-            AppEvents.logEvent(AppEvents.Name(eventName), parameters: parameters)
-        }
+
+        do {
+            if arguments["_valueToSum"] != nil && !(arguments["_valueToSum"] is NSNull) {
+                let valueToDouble = arguments["_valueToSum"] as! Double
+                try AppEvents.logEvent(AppEvents.Name(eventName), valueToSum: valueToDouble, parameters: parameters)
+            } else {
+                try AppEvents.logEvent(AppEvents.Name(eventName), parameters: parameters)
+            }
+        } catch {}
 
         result(nil)
     }
