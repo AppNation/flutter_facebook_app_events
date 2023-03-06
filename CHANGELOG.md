@@ -1,3 +1,49 @@
+## 0.18.3
+- Fixing issues [#270](https://github.com/oddbit/flutter_facebook_app_events/issues/270) and [#272](https://github.com/oddbit/flutter_facebook_app_events/issues/272)
+- Updating `FBSDKCoreKit` to `15.1`
+- Updating `FBAudienceNetwork` to `6.12` 
+
+## 0.18.2
+- Changing iOS version dependency to follow all `15.x` versions.
+
+## 0.18.1
+- Fixing version syntax in gradle.
+
+## 0.18.0
+- Updating Facebook SDK  dependency to follow all `15.x` versions.
+
+## 0.17.1
+- Implementing [Aggregated Event Measurement for Facebook App Events](https://developers.facebook.com/docs/app-events/guides/aggregated-event-measurement/) in [PR #236](https://github.com/oddbit/flutter_facebook_app_events/pull/236)
+
+## 0.17.0
+- Updating Facebook SDK  dependency to follow all `14.x` versions.
+- Updating documentation to add client token in [project README](https://github.com/oddbit/flutter_facebook_app_events/blob/master/README.md#setting-things-up)
+
+## 0.16.0
+See [PR 224](https://github.com/oddbit/flutter_facebook_app_events/pull/224)
+
+- Updating Facebook SDK  dependency to follow all `13.x` versions.
+- Updating deprecated ios methods and propeties according https://github.com/facebook/facebook-ios-sdk/blob/main/CHANGELOG.md
+
+## 0.15.0
+- Adding back `setUserData()` which was removed by mistake. It's not completely deprecated.
+- Bumping iOS FBSDK version to `12.3`
+
+## 0.14.8
+- Making parameters to `logPurchase()` mandatory ([issue #182](https://github.com/oddbit/flutter_facebook_app_events/issues/159))
+- Updating gradle config for [`jcenter` deprecation](https://blog.gradle.org/jcenter-shutdown#:~:text=The%20jcenter()%20method%20will,may%20only%20publish%20new%20versions.).
+
+## 0.14.7
+Narrowing down the Facebook SDK version for iOS due to the trouble it seems to cause with different developer
+environments and setups. See discussion in issue [#159](https://github.com/oddbit/flutter_facebook_app_events/issues/159) 
+and [#171](https://github.com/oddbit/flutter_facebook_app_events/issues/171).
+
+## 0.14.6
+Fixing [issue 159](https://github.com/oddbit/flutter_facebook_app_events/issues/159) - iOS compilation error
+
+## 0.14.5
+Fixing [issue 165](https://github.com/oddbit/flutter_facebook_app_events/issues/165) - Pod install Error
+
 ## 0.14.4
 Fixing [issue 161](https://github.com/oddbit/flutter_facebook_app_events/issues/161) - Adding configuration option for
 `isAdvertiserIDCollectionEnabled` in the `setAdvertiserTracking()` method.
