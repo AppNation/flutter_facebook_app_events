@@ -8,7 +8,9 @@ const channelName = 'flutter.oddbit.id/facebook_app_events';
 class FacebookAppEvents {
   static const _channel = MethodChannel(channelName);
 
-  // See: https://github.com/facebook/facebook-android-sdk/blob/master/facebook-core/src/main/java/com/facebook/appevents/AppEventsConstants.java
+  // See,
+  // android: https://github.com/facebook/facebook-android-sdk/blob/master/facebook-core/src/main/java/com/facebook/appevents/AppEventsConstants.java
+  // ios: https://github.com/facebook/facebook-ios-sdk/blob/main/FBSDKCoreKit/FBSDKCoreKit/AppEvents/FBSDKAppEventName.m
   static const eventNameCompletedRegistration =
       'fb_mobile_complete_registration';
   static const eventNameViewedContent = 'fb_mobile_content_view';
