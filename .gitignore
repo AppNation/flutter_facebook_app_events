@@ -4,4 +4,6 @@
 .packages
 .pub/
 
+.github/
+
 build/

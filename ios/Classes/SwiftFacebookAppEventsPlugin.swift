@@ -151,7 +151,6 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         } else {
             AppEvents.shared.logPushNotificationOpen(payload: payload!)
         }
-
         result(nil)
     }
 
