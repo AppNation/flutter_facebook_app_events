@@ -1,3 +1,7 @@
+## 0.19.4
+- Set `FBAudienceNetwork` iOS exact version `6.15.0` due to stability issue
+- Update iOS properties
+
 ## 0.19.2
 - Updating `FBSDKCoreKit` to `17.0` that include Privacy Manifest
 - Updating `FBAudienceNetwork` to `6.15`
