@@ -1,3 +1,23 @@
+## 0.20.2
+- Add documentation for Facebook Event Manager "Please Upgrade SDK" warning (PR [#442](https://github.com/oddbit/flutter_facebook_app_events/pull/442))
+
+## 0.20.1
+Updating example app 
+
+## 0.20.0
+### ⚠️ Breaking Changes
+- **Remove iOS FBAudienceNetwork dependency** - If your app depends on FBAudienceNetwork framework, you'll need to include it separately in your app
+
+### Features
+- Update Android `FBSDKCoreKit` to version `18.0` to `19.0`
+- Merge option to set debug enabled feature
+
+## 0.19.7
+- Update iOS `FBSDKCoreKit` to `18.0`
+
+## 0.19.6
+- Removed "import io.flutter.plugin.common.PluginRegistry.Registrar"
+
 ## 0.19.5
 - Bump up android gradle version to `8.11.1`
 - Update gradle syntax to use declarative style

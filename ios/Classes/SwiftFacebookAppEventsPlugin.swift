@@ -2,12 +2,16 @@ import Flutter
 import UIKit
 import FBSDKCoreKit
 import FBSDKCoreKit_Basics
-import FBAudienceNetwork
 
 public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "flutter.oddbit.id/facebook_app_events", binaryMessenger: registrar.messenger())
         let instance = SwiftFacebookAppEventsPlugin()
+
+        // Required for FB SDK 9.0, as it does not initialize the SDK automatically any more.
+        // See: https://developers.facebook.com/blog/post/2021/01/19/introducing-facebook-platform-sdk-version-9/
+        // "Removal of Auto Initialization of SDK" section
+        ApplicationDelegate.shared.initializeSDK()
 
         registrar.addMethodCallDelegate(instance, channel: channel)
         registrar.addApplicationDelegate(instance)
@@ -34,9 +38,6 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
-        case "initialize":
-            initialize(call, result: result)
-            break
         case "clearUserData":
             handleClearUserData(call, result: result)
             break
@@ -79,14 +80,6 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         default:
             result(FlutterMethodNotImplemented)
         }
-    }
-
-    private func initialize(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-        // Required for FB SDK 9.0, as it does not initialize the SDK automatically any more.
-        // See: https://developers.facebook.com/blog/post/2021/01/19/introducing-facebook-platform-sdk-version-9/
-        // "Removal of Auto Initialization of SDK" section
-        ApplicationDelegate.shared.initializeSDK()
-        result(nil)
     }
 
     private func handleClearUserData(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -191,7 +184,7 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         let arguments = call.arguments as? [String: Any] ?? [String: Any]()
         let enabled = arguments["enabled"] as! Bool
         let collectId = arguments["collectId"] as! Bool
-        FBAdSettings.setAdvertiserTrackingEnabled(enabled)
+        Settings.shared.isAdvertiserTrackingEnabled = enabled
         Settings.shared.isAdvertiserTrackingEnabled = enabled
         Settings.shared.isAdvertiserIDCollectionEnabled = collectId
         result(nil)
