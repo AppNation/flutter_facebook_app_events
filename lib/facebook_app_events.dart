@@ -243,7 +243,8 @@ class FacebookAppEvents {
   /// This is needed for California Consumer Privacy Act (CCPA) compliance
   ///
   /// See: https://developers.facebook.com/docs/marketing-apis/data-processing-options
-  Future<void> setDataProcessingOptions(List<String> options, {
+  Future<void> setDataProcessingOptions(
+    List<String> options, {
     int? country,
     int? state,
   }) {
@@ -285,9 +286,8 @@ class FacebookAppEvents {
         paramNameContentId: contentId,
         paramNameNumItems: numItems,
         paramNameCurrency: currency,
-        paramNamePaymentInfoAvailable: paymentInfoAvailable
-            ? paramValueYes
-            : paramValueNo,
+        paramNamePaymentInfoAvailable:
+            paymentInfoAvailable ? paramValueYes : paramValueNo,
       },
     );
   }
@@ -297,8 +297,7 @@ class FacebookAppEvents {
     return _channel.invokeMethod<void>('initialize');
   }
 
-  /// Sets the Advert Tracking propeety for iOS advert tracking
-  /// an iOS 14+ feature, android should just return a success.
+  /// Sets the Advert Tracking property
   Future<void> setAdvertiserTracking({
     required bool enabled,
     bool collectId = true,
